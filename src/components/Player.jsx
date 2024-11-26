@@ -2,18 +2,18 @@ import { useState, useRef } from "react";
 
 export default function Player() {
 
-  const [name, setName] = useState(null);
+const playerName = useRef();
+ 
+const [name, setName] = useState(null);
 
-  
+    function handleClick(){
+      if(playerName.current.value.length < 15){
+        setName(playerName.current.value);
+        playerName.current.value='';
+      } else{
+        setName("you hve exceed the max number of characters");
+      }
 
-
-  const playerName = useRef();
-
-
-
-  function handleClick(){
-   setName(playerName.current.value);
-   playerName.current.value='';
   }
   
   return (

@@ -11,7 +11,7 @@ const [name, setName] = useState(null);
         setName(playerName.current.value);
         playerName.current.value='';
       } else{
-        setName("you hve exceed the max number of characters");
+        setName("you have exceeded the max number of characters");
       }
 
   }

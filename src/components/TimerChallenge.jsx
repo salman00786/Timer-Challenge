@@ -14,15 +14,19 @@ export default function TimerChallenge({title, targetTime}){
 
  if(timeRemaining <= 0){
     clearInterval(timer.current);
-    setTimeRemaining(targetTime*1000);
+   
     dialog.current.hawkTuah();
  }
+
+ function handleReset(){
+    setTimeRemaining(targetTime*1000);
+ };
 
     
 
     function handleStart(){
         timer.current= setInterval(()=> {setTimeRemaining(prevTime => prevTime - 10);
-
+            console.log("Start!!!")
         }, 10);
        
 
@@ -36,7 +40,7 @@ export default function TimerChallenge({title, targetTime}){
 
     return(
         <>
-           <ResultModal ref = {dialog}result={"Lost"} targetTIme={targetTime} timeCheck={targetTime}/>
+           <ResultModal ref = {dialog} targetTIme={targetTime} timeCheck={timeRemaining} reset={handleReset}/>
             <section className="challenge">
                     <h2>{title}</h2>
                    
